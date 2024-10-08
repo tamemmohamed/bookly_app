@@ -1,4 +1,6 @@
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_details_app_bar.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_bokk_image_item.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -6,16 +8,40 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(
+    var width = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: const EdgeInsets.symmetric(
         horizontal: 16,
       ),
       child: Column(
         children: [
-          CustomDetailsAppBar(),
+          const CustomDetailsAppBar(),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: width * .2,
+            ),
+            child: const CustomBookImageItem(),
+          ),
+          const SizedBox(
+            height: 43,
+          ),
+          const Text(
+            'The Jungle Book',
+            style: Styles.textStyle30,
+          ),
+          const SizedBox(
+            height: 6,
+          ),
+          Text(
+            'Rudyard Kipling',
+            style: Styles.textStyle18.copyWith(
+              fontWeight: FontWeight.w100,
+              fontStyle: FontStyle.italic,
+              color: Colors.grey,
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
