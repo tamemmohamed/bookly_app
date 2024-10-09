@@ -9,6 +9,7 @@ class CustomDetailsAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
+          padding: EdgeInsets.zero,
           onPressed: () {
             Navigator.pop(context);
           },
