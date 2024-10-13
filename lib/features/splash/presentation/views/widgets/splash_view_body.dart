@@ -22,9 +22,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
     initSlidingAnimation();
     navigatToHome();
-    // slidingAnimation.addListener(() {
-    //   setState(() {});
-    // });
   }
 
   @override

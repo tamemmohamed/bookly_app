@@ -20,7 +20,7 @@ class BookModel extends Equatable {
     this.id,
     this.etag,
     this.selfLink,
-    required this.volumeInfo,
+    this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,

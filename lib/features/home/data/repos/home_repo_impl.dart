@@ -52,6 +52,5 @@ class HomeRepoImpl implements HomeRepo {
         ),
       );
     }
-    throw UnimplementedError();
   }
 }
