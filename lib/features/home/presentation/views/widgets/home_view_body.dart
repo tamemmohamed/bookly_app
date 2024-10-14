@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-          child: Column(
+          child: Column( 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(

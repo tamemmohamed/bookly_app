@@ -8,8 +8,7 @@ import 'package:bookly_app/features/home/presentation/views/widgets/similir_book
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key, required this.bookModel});
-  final BookModel bookModel;
+  const BookDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +50,11 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-           BookRating(
-            rating: bookModel.volumeInfo.averageRating!,
-            count: bookModel.volumeInfo.ratingsCount!,
-            mainAxisAlignment: MainAxisAlignment.center,
-          ),
+          //  BookRating(
+          //   rating: bookModel!.volumeInfo.averageRating!,
+          //   count: bookModel!.volumeInfo.ratingsCount!,
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          // ),
           const SizedBox(
             height: 16,
           ),
