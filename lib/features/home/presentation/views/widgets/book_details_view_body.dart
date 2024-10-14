@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_action_details.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_details_app_bar.dart';
@@ -7,7 +8,8 @@ import 'package:bookly_app/features/home/presentation/views/widgets/similir_book
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,9 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const BookRating(
+           BookRating(
+            rating: bookModel.volumeInfo.averageRating!,
+            count: bookModel.volumeInfo.ratingsCount!,
             mainAxisAlignment: MainAxisAlignment.center,
           ),
           const SizedBox(

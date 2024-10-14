@@ -23,10 +23,10 @@ abstract class AppRouter {
         path: kBookDetailsView,
         builder: (context, state) => const BookDetailsView(),
       ),
-      GoRoute(
-        path: kSearchView,
-        builder: (context, state) => const SearchView(),
-      ),
+      // GoRoute(
+      //   path: kSearchView,
+      //   // builder: (context, state) => const SearchView(),
+      // ),
     ],
   );
 }
