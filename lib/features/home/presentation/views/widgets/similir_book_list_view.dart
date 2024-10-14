@@ -1,28 +1,43 @@
+import 'package:bookly_app/core/widgets/custom_error_widget.dart';
+import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly_app/features/home/presentation/manger/similer_books_cubit/similer_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_bokk_image_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SimilirBooksListView extends StatelessWidget {
   const SimilirBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .15,
-      child: ListView.builder(
-        itemCount: 10,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.only(
-              right: 8,
-            ),
-            child: CustomBookImageItem(
-              imageUrl:
-                  'https://www.google.com/imgres?q=pictures&imgurl=https%3A%2F%2Fstatic.toiimg.com%2Fthumb%2Fmsid-53891743%2Cwidth-748%2Cheight-499%2Cresizemode%3D4%2Cimgsize-152022%2FTour-Eiffel.jpg&imgrefurl=https%3A%2F%2Ftimesofindia.indiatimes.com%2Ftravel%2Fdestinations%2Fparis-in-pictures%2Fphotostory%2F45454098.cms&docid=3Cgc6XmfuBMATM&tbnid=rInLHBa8ybS5nM&vet=12ahUKEwiPh8SNloyJAxUyU6QEHTaFAIYQM3oECFMQAA..i&w=748&h=499&hcb=2&ved=2ahUKEwiPh8SNloyJAxUyU6QEHTaFAIYQM3oECFMQAA',
+    return BlocBuilder<SimilerBooksCubit, SimilerBooksState>(
+      builder: (context, state) {
+        if (state is SimilerBooksSuccess) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * .15,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return const Padding(
+                  padding: EdgeInsets.only(
+                    right: 8,
+                  ),
+                  child: CustomBookImageItem(
+                    imageUrl: '',
+                  ),
+                );
+              },
             ),
           );
-        },
-      ),
+        } else if (state is SimilerBooksFaiure) {
+          return CustomErrorWidget(
+            errMessage: state.errMessage,
+          );
+        } else {
+          return const CustomLoadingIndicator();
+        }
+      },
     );
   }
 }
